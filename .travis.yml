@@ -6,4 +6,8 @@ php:
   - hhvm
   - nightly
 
-script: phpunit --group unit tests
+before_script:
+  - composer self-update
+  - composer install
+
+script: make test
