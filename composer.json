@@ -1,0 +1,22 @@
+{
+    "name": "gregoryv/php-logger",
+    "description": "Basic logging for php",
+    "license": "MIT",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Gregory Vinčić",
+            "email": "g@7de.se"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "gregoryv\\logger\\": "src/"
+        }
+    }
+}
