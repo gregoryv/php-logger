@@ -4,7 +4,12 @@ namespace gregoryv\logger;
 
 
 /**
-* Logger is what you use in your modules to write log messages.
+* Loggers are used to send formated messages to the writers using
+* specific log levels.
+*
+* Default template of the message is
+*
+*   context( INFO|WARNING|ERROR|DEBUG) message
 */
 class Logger
 {
@@ -40,21 +45,33 @@ class Logger
         self::$writer = $writer;
     }
 
+    /**
+     * Write formated INFO level messages
+     */
     public function info($value='')
     {
         self::$writer->pwrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
     }
 
+    /**
+     * Write formated WARNING level messages
+     */
     public function warn($value='')
     {
         self::$writer->pwrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
     }
 
+    /**
+     * Write formated ERROR level messages
+     */
     public function error($value='')
     {
         self::$writer->pwrite(LOG_ERR, sprintf($this->template, 'ERROR', $value));
     }
 
+    /**
+     * Write formated DEBUG level messages
+     */
     public function debug($value='')
     {
         self::$writer->pwrite(LOG_DEBUG, sprintf($this->template, 'DEBUG', $value));
