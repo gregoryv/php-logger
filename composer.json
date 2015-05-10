@@ -2,7 +2,7 @@
     "name": "gregoryv/php-logger",
     "description": "Basic logging for php",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "authors": [
         {
             "name": "Gregory Vinčić",
