@@ -1,5 +1,7 @@
 <?php
+// Copyright (c) 2015 Gregory Vinčić, The MIT License (MIT)
 namespace gregoryv\logger;
+
 
 /**
 * Logger is what you use in your modules to write log messages.
