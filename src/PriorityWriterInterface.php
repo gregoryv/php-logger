@@ -1,6 +1,12 @@
 <?php
 namespace gregoryv\logger;
 
+/**
+ * Responsible for distributing prioritized messages to some media, eg. file
+ * or syslog.
+ *
+ * @see SyslogWriter
+ */
 interface PriorityWriterInterface
 {
     /**

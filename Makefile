@@ -3,8 +3,10 @@ all: test
 test:
 	php vendor/bin/phpunit tests
 
-pages:
+api:
 	apigen generate --source src --destination api
+
+pages: api
 	mv api api.bak
 	git checkout gh-pages
 	rm -rf api
