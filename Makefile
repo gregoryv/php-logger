@@ -5,4 +5,7 @@ test:
 
 pages:
 	apigen generate --source src --destination api
-
+	mv api api.bak
+	git checkout gh-pages
+	rm -rf api
+	mv api.bak api
