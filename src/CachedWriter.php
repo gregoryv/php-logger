@@ -40,10 +40,10 @@ class CachedWriter implements PriorityWriterInterface
     public function setLimit($limit)
     {
         if(!is_int($limit)) {
-            throw new InvalidArgumentException("limit must be a int");
+            throw new \InvalidArgumentException("limit must be a int");
         }
         if($limit < 1) {
-            throw new InvalidArgumentException("limit must be 1 or more");
+            throw new \InvalidArgumentException("limit must be 1 or more");
         }
         $this->resizeCache($limit);
         $this->messageLimit = $limit;
@@ -52,7 +52,7 @@ class CachedWriter implements PriorityWriterInterface
     public function resizeCache($limit)
     {
         while(sizeof($this->cache) != $limit) {
-            array_unshift($this->cache);
+            array_shift($this->cache);
         }
     }
 }
