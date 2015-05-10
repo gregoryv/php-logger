@@ -15,7 +15,7 @@ class LoggerTest extends PHPUnit_Framework_TestCase {
     * @test
     * @group unit
     */
-    function info_level_messages_are_propagated_to_writer() {
+    function all_level_messages_are_propagated_to_writer() {
         $writer = new CachedWriter();
         Logger::setWriter($writer);
         $log = new Logger('me');
@@ -27,6 +27,18 @@ class LoggerTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($writer->cache[2], 'me ERROR message');
         $log->debug("message");
         $this->assertEquals($writer->cache[3], 'me DEBUG message');
+    }
+
+    /**
+    * @test
+    * @group unit
+    */
+    function object_context_uses_its_class_name() {
+        $log = new Logger($this);
+        $writer = new CachedWriter();
+        Logger::setWriter($writer);
+        $log->info('message');
+        $this->assertEquals($writer->cache[0], 'LoggerTest INFO message');
     }
 
 }

@@ -3,7 +3,7 @@ README
 
 Logger module for basic logging in php.
 
-* [API reference](https://gregoryv.github.io/php-logger/api)
+* [API reference](http://gregoryv.github.io/php-logger/api/namespace-gregoryv.logger.html)
 
 Usage
 -----

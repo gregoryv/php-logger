@@ -9,12 +9,22 @@ class Logger
     private static $writer;
     private $template;
 
-    function __construct($label='')
+    /**
+     * Constructs a new logger where all messages are prefixed with
+     * the context.
+     * If the context is an object the class name of that object is used.
+     *
+     * @param mixed $context string or class
+     */
+    function __construct($context='')
     {
         if(empty(self::$writer)) {
             self::$writer = new SyslogWriter();
         }
-        $label = empty($label) ? '' : $label . ' ';
+        if(is_object($context)) {
+            $context = get_class($context);
+        }
+        $label = empty($context) ? '' : $context . ' ';
         $this->template = $label . "%s %s";
     }
 
