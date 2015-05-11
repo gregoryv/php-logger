@@ -1,13 +1,7 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use gregoryv\logger\CachedWriter;
 
 class CachedWriterTest extends PHPUnit_Framework_TestCase {
-
-    function setUp() {
-
-    }
 
     /**
     * @test

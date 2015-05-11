@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use gregoryv\logger\CachedWriter;
 use gregoryv\logger\Logger;
 
