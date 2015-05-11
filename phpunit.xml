@@ -1,0 +1,12 @@
+<phpunit bootstrap="vendor/autoload.php">
+  <groups>
+    <include>
+      <group>unit</group>
+    </include>
+  </groups>
+  <filter>
+    <blacklist>
+      <directory suffix="Test.php">tests</directory>
+    </blacklist>
+  </filter>
+</phpunit>
