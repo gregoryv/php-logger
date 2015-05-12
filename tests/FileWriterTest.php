@@ -11,7 +11,9 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
     */
     function one_file_for_all_levels() {
         $file = '/tmp/gregoryv_logger.txt';
-        unlink($file);
+        if(is_file($file)) {
+            unlink($file);
+        }
         $writer = new FileWriter($file);
         $writer->pwrite(LOG_INFO, '1');
         $writer->pwrite(LOG_WARNING, '2');
