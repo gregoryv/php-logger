@@ -4,19 +4,14 @@ use gregoryv\logger\Logger;
 
 class LoggerTest extends PHPUnit_Framework_TestCase {
 
-    function setUp() {
-        $this->writer = new CachedWriter();
-        Logger::setWriter($this->writer);
-    }
-
     /**
     * @test
     * @group unit
     */
     function all_level_messages_are_propagated_to_writer() {
+        $log = new Logger('me');
         $writer = new CachedWriter();
         Logger::setWriter($writer);
-        $log = new Logger('me');
         $log->info("message");
         $this->assertEquals($writer->cache[0], 'me INFO message');
         $log->warn("message");

@@ -68,7 +68,11 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
     * @group unit
     */
     function unknown_priority_pwrite_to_default() {
-        $writer = new FileWriter('/tmp/gregoryv_default.txt');
+        $file = '/tmp/gregoryv_default.txt';
+        if(is_file($file)) {
+            unlink($file);
+        }
+        $writer = new FileWriter($file);
         $writer->pwrite(99, 'something');
         $result = file_get_contents($file);
         $this->assertEquals("something\n", $result);

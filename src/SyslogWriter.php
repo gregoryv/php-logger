@@ -4,6 +4,8 @@ namespace gregoryv\logger;
 
 /**
 * SyslogWriter uses syslog() to write messages
+*
+* @codeCoverageIgnore
 */
 class SyslogWriter implements PriorityWriterInterface
 {

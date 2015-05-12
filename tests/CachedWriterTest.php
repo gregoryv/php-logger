@@ -10,6 +10,7 @@ class CachedWriterTest extends PHPUnit_Framework_TestCase {
     function limit_is_respected() {
         $writer = new CachedWriter(3);
         $writer->pwrite(1, 'a');
+        $writer->pwrite(1, 'a');
         $writer->pwrite(1, 'b');
         $writer->pwrite(1, 'c');
         $writer->setLimit(2);
