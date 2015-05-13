@@ -5,7 +5,7 @@ namespace gregoryv\logger;
 /**
 * FileWriter writes log messages to one or more files
 */
-class FileWriter implements PriorityWriterInterface
+class FileWriter implements SeverityWriterInterface
 {
 
     private $default_fh, $info_fh, $warn_fh, $error_fh, $debug_fh;
@@ -23,7 +23,7 @@ class FileWriter implements PriorityWriterInterface
         $this->debug_fh = $fh;
     }
 
-    public function pwrite($priority, $value='')
+    public function swrite($priority, $value='')
     {
         $fh = $this->selectFileHandle($priority);
         fwrite($fh, $value . "\n");

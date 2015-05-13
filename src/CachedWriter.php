@@ -5,7 +5,7 @@ namespace gregoryv\logger;
 /**
  * FIFO cache of log messages
  */
-class CachedWriter implements PriorityWriterInterface
+class CachedWriter implements SeverityWriterInterface
 {
     /**
      * @var array $cache holding the messages
@@ -26,7 +26,7 @@ class CachedWriter implements PriorityWriterInterface
     /**
      * Stores messages in the public cache by priority
      */
-    public function pwrite($priority, $value='')
+    public function swrite($priority, $value='')
     {
         if(sizeof($this->cache) == $this->messageLimit) {
             array_shift($this->cache);

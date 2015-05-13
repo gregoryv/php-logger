@@ -4,13 +4,11 @@ namespace gregoryv\logger;
 
 /**
 * SyslogWriter uses syslog() to write messages
-*
-* @codeCoverageIgnore
 */
-class SyslogWriter implements PriorityWriterInterface
+class SyslogWriter implements SeverityWriterInterface
 {
 
-    public function pwrite($priority, $message='')
+    public function swrite($priority, $message='')
     {
         syslog($priority, $message);
     }

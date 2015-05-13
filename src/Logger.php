@@ -38,19 +38,20 @@ class Logger
     /**
      * Set global writer for all your loggers
      *
-     * @param PriorityWriterInterface $writer
+     * @param SeverityWriterInterface $writer
      */
-    public static function setWriter(PriorityWriterInterface $writer)
+    public static function setWriter(SeverityWriterInterface $writer)
     {
         self::$writer = $writer;
     }
+
 
     /**
      * Write formated INFO level messages
      */
     public function info($value='')
     {
-        self::$writer->pwrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
+        self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
     }
 
     /**
@@ -58,7 +59,7 @@ class Logger
      */
     public function warn($value='')
     {
-        self::$writer->pwrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
+        self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
     }
 
     /**
@@ -66,7 +67,7 @@ class Logger
      */
     public function error($value='')
     {
-        self::$writer->pwrite(LOG_ERR, sprintf($this->template, 'ERROR', $value));
+        self::$writer->swrite(LOG_ERR, sprintf($this->template, 'ERROR', $value));
     }
 
     /**
@@ -74,6 +75,6 @@ class Logger
      */
     public function debug($value='')
     {
-        self::$writer->pwrite(LOG_DEBUG, sprintf($this->template, 'DEBUG', $value));
+        self::$writer->swrite(LOG_DEBUG, sprintf($this->template, 'DEBUG', $value));
     }
 }

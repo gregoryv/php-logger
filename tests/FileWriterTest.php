@@ -15,10 +15,10 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
             unlink($file);
         }
         $writer = new FileWriter($file);
-        $writer->pwrite(LOG_INFO, '1');
-        $writer->pwrite(LOG_WARNING, '2');
-        $writer->pwrite(LOG_ERR, '3');
-        $writer->pwrite(LOG_DEBUG, '4');
+        $writer->swrite(LOG_INFO, '1');
+        $writer->swrite(LOG_WARNING, '2');
+        $writer->swrite(LOG_ERR, '3');
+        $writer->swrite(LOG_DEBUG, '4');
 
         $result = file_get_contents($file);
         $expected = implode("\n", [1,2,3,4,'']);
@@ -46,7 +46,7 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
         }
         $writer = new FileWriter('/tmp/gregoryv_default.txt');
         $writer->useFile($priority, $file);
-        $writer->pwrite($priority, '1');
+        $writer->swrite($priority, '1');
 
         $result = file_get_contents($file);
         $expected = implode("\n", [1,'']);
@@ -67,13 +67,13 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
     * @test
     * @group unit
     */
-    function unknown_priority_pwrite_to_default() {
+    function unknown_priority_swrite_to_default() {
         $file = '/tmp/gregoryv_default.txt';
         if(is_file($file)) {
             unlink($file);
         }
         $writer = new FileWriter($file);
-        $writer->pwrite(99, 'something');
+        $writer->swrite(99, 'something');
         $result = file_get_contents($file);
         $this->assertEquals("something\n", $result);
 
