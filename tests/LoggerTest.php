@@ -4,6 +4,7 @@ use gregoryv\logger\Logger;
 
 class LoggerTest extends PHPUnit_Framework_TestCase {
 
+
     /**
     * @test
     * @group unit
@@ -12,14 +13,23 @@ class LoggerTest extends PHPUnit_Framework_TestCase {
         $log = new Logger('me');
         $writer = new CachedWriter();
         Logger::setWriter($writer);
-        $log->info("message");
-        $this->assertEquals($writer->cache[0], 'me INFO message');
-        $log->warn("message");
-        $this->assertEquals($writer->cache[1], 'me WARNING message');
+        $i = 0;
+        $log->emergency("message");
+        $this->assertEquals($writer->cache[$i++], 'me EMERGENCY message');
+        $log->alert("message");
+        $this->assertEquals($writer->cache[$i++], 'me ALERT message');
+        $log->critical("message");
+        $this->assertEquals($writer->cache[$i++], 'me CRITICAL message');
         $log->error("message");
-        $this->assertEquals($writer->cache[2], 'me ERROR message');
+        $this->assertEquals($writer->cache[$i++], 'me ERROR message');
+        $log->notice("message");
+        $this->assertEquals($writer->cache[$i++], 'me NOTICE message');
+        $log->warn("message");
+        $this->assertEquals($writer->cache[$i++], 'me WARNING message');
+        $log->info("message");
+        $this->assertEquals($writer->cache[$i++], 'me INFO message');
         $log->debug("message");
-        $this->assertEquals($writer->cache[3], 'me DEBUG message');
+        $this->assertEquals($writer->cache[$i++], 'me DEBUG message');
     }
 
     /**

@@ -47,23 +47,31 @@ class Logger
 
 
     /**
-     * Write formated INFO level messages
+     * 0. Emergency: system is unusable
      */
-    public function info($value='')
+    public function emergency($value='')
     {
-        self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
+        self::$writer->swrite(LOG_EMERG, sprintf($this->template, 'EMERGENCY', $value));
     }
 
     /**
-     * Write formated WARNING level messages
+     * 1. Alert: action must be taken immediately
      */
-    public function warn($value='')
+    public function alert($value='')
     {
-        self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
+        self::$writer->swrite(LOG_ALERT, sprintf($this->template, 'ALERT', $value));
     }
 
     /**
-     * Write formated ERROR level messages
+     * 2. Critical: critical conditions
+     */
+    public function critical($value='')
+    {
+        self::$writer->swrite(LOG_CRIT, sprintf($this->template, 'CRITICAL', $value));
+    }
+
+    /**
+     * 3. Error: error conditions
      */
     public function error($value='')
     {
@@ -71,7 +79,31 @@ class Logger
     }
 
     /**
-     * Write formated DEBUG level messages
+     * 4. Warning: warning conditions
+     */
+    public function warn($value='')
+    {
+        self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
+    }
+
+    /**
+     * 5. Notice: normal but significant condition
+     */
+    public function notice($value='')
+    {
+        self::$writer->swrite(LOG_NOTICE, sprintf($this->template, 'NOTICE', $value));
+    }
+
+    /**
+     * 6. Informational: informational messages
+     */
+    public function info($value='')
+    {
+        self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
+    }
+
+    /**
+     * 7. Debug: debug-level messages
      */
     public function debug($value='')
     {
