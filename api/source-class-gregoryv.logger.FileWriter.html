@@ -48,7 +48,7 @@
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="class-gregoryv.logger.PriorityWriterInterface.html">gregoryv\logger\PriorityWriterInterface</a></li>
+				<li><a href="class-gregoryv.logger.SeverityWriterInterface.html">gregoryv\logger\SeverityWriterInterface</a></li>
 			</ul>
 
 
@@ -91,7 +91,7 @@
 </span><span id="5" class="l"><a href="#5"> 5: </a><span class="php-comment">/**
 </span></span><span id="6" class="l"><a href="#6"> 6: </a><span class="php-comment">* FileWriter writes log messages to one or more files
 </span></span><span id="7" class="l"><a href="#7"> 7: </a><span class="php-comment">*/</span>
-</span><span id="8" class="l"><a href="#8"> 8: </a><span class="php-keyword1">class</span> FileWriter <span class="php-keyword1">implements</span> PriorityWriterInterface
+</span><span id="8" class="l"><a href="#8"> 8: </a><span class="php-keyword1">class</span> FileWriter <span class="php-keyword1">implements</span> SeverityWriterInterface
 </span><span id="9" class="l"><a href="#9"> 9: </a>{
 </span><span id="10" class="l"><a href="#10">10: </a>
 </span><span id="11" class="l"><a href="#11">11: </a>    <span class="php-keyword1">private</span> <span class="php-var">$default_fh</span>, <span class="php-var">$info_fh</span>, <span class="php-var">$warn_fh</span>, <span class="php-var">$error_fh</span>, <span class="php-var">$debug_fh</span>;
@@ -109,7 +109,7 @@
 </span><span id="23" class="l"><a href="#23">23: </a>        <span class="php-var">$this</span>-&gt;debug_fh = <span class="php-var">$fh</span>;
 </span><span id="24" class="l"><a href="#24">24: </a>    }
 </span><span id="25" class="l"><a href="#25">25: </a>
-</span><span id="26" class="l"><a href="#26">26: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> pwrite(<span class="php-var">$priority</span>, <span class="php-var">$value</span>=<span class="php-quote">''</span>)
+</span><span id="26" class="l"><a href="#26">26: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> swrite(<span class="php-var">$priority</span>, <span class="php-var">$value</span>=<span class="php-quote">''</span>)
 </span><span id="27" class="l"><a href="#27">27: </a>    {
 </span><span id="28" class="l"><a href="#28">28: </a>        <span class="php-var">$fh</span> = <span class="php-var">$this</span>-&gt;selectFileHandle(<span class="php-var">$priority</span>);
 </span><span id="29" class="l"><a href="#29">29: </a>        <span class="php-keyword2">fwrite</span>(<span class="php-var">$fh</span>, <span class="php-var">$value</span> . <span class="php-quote">&quot;\n&quot;</span>);
@@ -164,6 +164,6 @@
 </div>
 </div>
 <script src="resources/combined.js?a82afd6d68b3a14608511d042868079eddfa65a5"></script>
-<script src="elementlist.js?438470255917ecab8e65c6fe0d55ae1c5ea6a7c7"></script>
+<script src="elementlist.js?adc5b064e611ca559dc71409222ad7e269913c05"></script>
 </body>
 </html>
