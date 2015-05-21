@@ -47,7 +47,7 @@ class Logger
 
 
     /**
-     * 0. Emergency: system is unusable
+     * (0) Emergency: system is unusable
      */
     public function emergency($value='')
     {
@@ -55,7 +55,7 @@ class Logger
     }
 
     /**
-     * 1. Alert: action must be taken immediately
+     * (1) Alert: action must be taken immediately
      */
     public function alert($value='')
     {
@@ -63,7 +63,7 @@ class Logger
     }
 
     /**
-     * 2. Critical: critical conditions
+     * (2) Critical: critical conditions
      */
     public function critical($value='')
     {
@@ -71,7 +71,7 @@ class Logger
     }
 
     /**
-     * 3. Error: error conditions
+     * (3) Error: error conditions
      */
     public function error($value='')
     {
@@ -79,7 +79,7 @@ class Logger
     }
 
     /**
-     * 4. Warning: warning conditions
+     * (4) Warning: warning conditions
      */
     public function warn($value='')
     {
@@ -87,7 +87,7 @@ class Logger
     }
 
     /**
-     * 5. Notice: normal but significant condition
+     * (5) Notice: normal but significant condition
      */
     public function notice($value='')
     {
@@ -95,7 +95,7 @@ class Logger
     }
 
     /**
-     * 6. Informational: informational messages
+     * (6) Informational: informational messages
      */
     public function info($value='')
     {
@@ -103,7 +103,7 @@ class Logger
     }
 
     /**
-     * 7. Debug: debug-level messages
+     * (7) Debug: debug-level messages
      */
     public function debug($value='')
     {
