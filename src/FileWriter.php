@@ -23,20 +23,20 @@ class FileWriter implements SeverityWriterInterface
         $this->debug_fh = $fh;
     }
 
-    public function swrite($priority, $value='')
+    public function swrite($severity, $value='')
     {
-        $fh = $this->selectFileHandle($priority);
+        $fh = $this->selectFileHandle($severity);
         fwrite($fh, $value . "\n");
     }
 
     /**
-     * @param int $priority which level
+     * @param int $severity which level
      * @param string $file path to file
      */
-    public function useFile($priority, $file)
+    public function useFile($severity, $file)
     {
         $fh = fopen($file, 'a');
-        switch ($priority) {
+        switch ($severity) {
             case LOG_INFO:
                 $this->info_fh = $fh;
                 break;
@@ -50,13 +50,13 @@ class FileWriter implements SeverityWriterInterface
                 $this->debug_fh = $fh;
                 break;
             default:
-                throw new \InvalidArgumentException(sprintf('Invalid priority %s try LOG_INFO', $priority));
+                throw new \InvalidArgumentException(sprintf('Invalid priority %s try LOG_INFO', $severity));
         }
     }
 
-    private function selectFileHandle($priority)
+    private function selectFileHandle($severity)
     {
-        switch ($priority) {
+        switch ($severity) {
             case LOG_INFO:
                 return $this->info_fh;
             case LOG_WARNING:

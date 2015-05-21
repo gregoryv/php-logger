@@ -40,13 +40,13 @@ class FileWriterTest extends PHPUnit_Framework_TestCase {
     * @group unit
     * @dataProvider priorityFiles
     */
-    function alternative_log_file($priority, $file) {
+    function alternative_log_file($severity, $file) {
         if(is_file($file)) {
             unlink($file);
         }
         $writer = new FileWriter('/tmp/gregoryv_default.txt');
-        $writer->useFile($priority, $file);
-        $writer->swrite($priority, '1');
+        $writer->useFile($severity, $file);
+        $writer->swrite($severity, '1');
 
         $result = file_get_contents($file);
         $expected = implode("\n", [1,'']);

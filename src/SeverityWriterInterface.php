@@ -11,9 +11,9 @@ namespace gregoryv\logger;
 interface SeverityWriterInterface
 {
     /**
-     * @param int $priority eg. LOG_DEBUG, LOG_ERR
+     * @param int $severity eg. LOG_DEBUG, LOG_ERR
      * @param string $message the string to write
      */
-    public function swrite($priority, $message='');
+    public function swrite($severity, $message='');
 }
 

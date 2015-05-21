@@ -8,8 +8,8 @@ namespace gregoryv\logger;
 class SyslogWriter implements SeverityWriterInterface
 {
 
-    public function swrite($priority, $message='')
+    public function swrite($severity, $message='')
     {
-        syslog($priority, $message);
+        syslog($severity, $message);
     }
 }
