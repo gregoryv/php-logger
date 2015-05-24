@@ -29,8 +29,8 @@ class Logger
     function __construct($context='')
     {
         if(empty(self::$writer)) {
-            self::$writer = new SyslogWriter();
-        }
+            self::$writer = new SyslogWriter(); // @codeCoverageIgnore
+        } // @codeCoverageIgnore
         if(is_object($context)) {
             $context = get_class($context);
         }
