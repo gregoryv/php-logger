@@ -26,7 +26,7 @@ class CachedWriter implements SeverityWriterInterface
     /**
      * Stores messages in the public cache by priority
      */
-    public function swrite($priority, $value='')
+    public function swrite($severity, $value='')
     {
         if(sizeof($this->cache) == $this->messageLimit) {
             array_shift($this->cache);

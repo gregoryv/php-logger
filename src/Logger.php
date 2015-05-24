@@ -15,6 +15,9 @@ class Logger
 {
     private static $writer;
     private $template;
+    // Holds severity state, global default for all loggers
+    private static $SIEVE;
+    private $sieve; // local to this logger
 
     /**
      * Constructs a new logger where all messages are prefixed with
@@ -31,8 +34,12 @@ class Logger
         if(is_object($context)) {
             $context = get_class($context);
         }
+        if(empty(self::$SIEVE)) {
+            self::$SIEVE = new State();
+        }
         $label = empty($context) ? '' : $context . ' ';
         $this->template = $label . "%s %s";
+        $this->sieve = clone Logger::$SIEVE;
     }
 
     /**
@@ -45,68 +52,100 @@ class Logger
         self::$writer = $writer;
     }
 
-
     /**
-     * (0) Emergency: system is unusable
+     * Sets logging state of the given severity level in a readable format
+     *
+     * @example
+     *  $log->turn('on debug');
+     * @example
+     *  $log->turn('off warn');
+     *
+     * @param string $toggle format: (on|off) (debug|info|notice|warn|error|critical|alert|emergency)
      */
-    public function emergency($value='')
+    public function turn($toggle)
     {
-        self::$writer->swrite(LOG_EMERG, sprintf($this->template, 'EMERGENCY', $value));
+        list($flag, $name) = explode(" ", $toggle);
+        $this->sieve->toggle($flag, $name);
     }
 
     /**
-     * (1) Alert: action must be taken immediately
-     */
-    public function alert($value='')
-    {
-        self::$writer->swrite(LOG_ALERT, sprintf($this->template, 'ALERT', $value));
-    }
-
-    /**
-     * (2) Critical: critical conditions
-     */
-    public function critical($value='')
-    {
-        self::$writer->swrite(LOG_CRIT, sprintf($this->template, 'CRITICAL', $value));
-    }
-
-    /**
-     * (3) Error: error conditions
-     */
-    public function error($value='')
-    {
-        self::$writer->swrite(LOG_ERR, sprintf($this->template, 'ERROR', $value));
-    }
-
-    /**
-     * (4) Warning: warning conditions
-     */
-    public function warn($value='')
-    {
-        self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
-    }
-
-    /**
-     * (5) Notice: normal but significant condition
-     */
-    public function notice($value='')
-    {
-        self::$writer->swrite(LOG_NOTICE, sprintf($this->template, 'NOTICE', $value));
-    }
-
-    /**
-     * (6) Informational: informational messages
-     */
-    public function info($value='')
-    {
-        self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
-    }
-
-    /**
-     * (7) Debug: debug-level messages
+     * Debug (severity 7): debug-level messages
      */
     public function debug($value='')
     {
-        self::$writer->swrite(LOG_DEBUG, sprintf($this->template, 'DEBUG', $value));
+        if($this->sieve->debug) {
+            self::$writer->swrite(LOG_DEBUG, sprintf($this->template, 'DEBUG', $value));
+        }
     }
+
+    /**
+     * Informational (severity 6): informational messages
+     */
+    public function info($value='')
+    {
+        if($this->sieve->info) {
+            self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
+        }
+    }
+
+    /**
+     * Notice (severity 5): normal but significant condition
+     */
+    public function notice($value='')
+    {
+        if($this->sieve->notice) {
+            self::$writer->swrite(LOG_NOTICE, sprintf($this->template, 'NOTICE', $value));
+        }
+    }
+
+    /**
+     * Warning (severity 4): warning conditions
+     */
+    public function warn($value='')
+    {
+        if($this->sieve->warn) {
+            self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
+        }
+    }
+
+    /**
+     * Error (severity 3): error conditions
+     */
+    public function error($value='')
+    {
+        if($this->sieve->error) {
+            self::$writer->swrite(LOG_ERR, sprintf($this->template, 'ERROR', $value));
+        }
+    }
+
+    /**
+     * Critical (severity 2): critical conditions
+     */
+    public function critical($value='')
+    {
+        if($this->sieve->critical) {
+            self::$writer->swrite(LOG_CRIT, sprintf($this->template, 'CRITICAL', $value));
+        }
+    }
+
+    /**
+     * Alert (severity 1): action must be taken immediately
+     */
+    public function alert($value='')
+    {
+        if($this->sieve->alert) {
+            self::$writer->swrite(LOG_ALERT, sprintf($this->template, 'ALERT', $value));
+        }
+    }
+
+    /**
+     * Emergency (severity 0): system is unusable
+     */
+    public function emergency($value='')
+    {
+        if($this->sieve->emergency) {
+            self::$writer->swrite(LOG_EMERG, sprintf($this->template, 'EMERGENCY', $value));
+        }
+    }
+
 }

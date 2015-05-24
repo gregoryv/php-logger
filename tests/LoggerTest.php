@@ -5,6 +5,33 @@ use gregoryv\logger\Logger;
 class LoggerTest extends PHPUnit_Framework_TestCase {
 
 
+    public function methodNames()
+    {
+        return array(
+            array('debug'),
+            array('info'),
+            array('notice'),
+            array('warn'),
+            array('error'),
+            array('critical'),
+            array('alert'),
+            array('emergency')
+        );
+    }
+    /**
+    * @test
+    * @group unit
+    * @dataProvider methodNames
+    */
+    function toggle_severity_level_off($name) {
+        $writer = new CachedWriter();
+        Logger::setWriter($writer);
+        $log = new Logger($this);
+        $log->turn("off $name");
+        call_user_func(array($log, $name), 'something');
+        $this->assertCount(0, $writer->cache);
+    }
+
     /**
     * @test
     * @group unit
