@@ -42,6 +42,7 @@
 				<li><a href="class-gregoryv.logger.CachedWriter.html">CachedWriter</a></li>
 				<li><a href="class-gregoryv.logger.FileWriter.html">FileWriter</a></li>
 				<li class="active"><a href="class-gregoryv.logger.Logger.html">Logger</a></li>
+				<li><a href="class-gregoryv.logger.State.html">State</a></li>
 				<li><a href="class-gregoryv.logger.SyslogWriter.html">SyslogWriter</a></li>
 			</ul>
 
@@ -110,7 +111,7 @@ specific log levels.</p>
 		<b>Namespace:</b> <a href="namespace-gregoryv.html">gregoryv</a>\<a href="namespace-gregoryv.logger.html">logger</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-gregoryv.logger.Logger.html#6-112" title="Go to source code">Logger.php</a>
+			<b>Located at</b> <a href="source-class-gregoryv.logger.Logger.html#6-151" title="Go to source code">Logger.php</a>
 		<br>
 	</div>
 
@@ -130,7 +131,7 @@ specific log levels.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#19-36" title="Go to source code">__construct</a>( <span>mixed <var>$context</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#22-43" title="Go to source code">__construct</a>( <span>mixed <var>$context</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Constructs a new logger where all messages are prefixed with
@@ -169,7 +170,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setWriter">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#38-46" title="Go to source code">setWriter</a>( <span><code><a href="class-gregoryv.logger.SeverityWriterInterface.html">gregoryv\logger\SeverityWriterInterface</a></code> <var>$writer</var></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#45-53" title="Go to source code">setWriter</a>( <span><code><a href="class-gregoryv.logger.SeverityWriterInterface.html">gregoryv\logger\SeverityWriterInterface</a></code> <var>$writer</var></span> )</code>
 
 		<div class="description short">
 			<p>Set global writer for all your loggers</p>
@@ -192,7 +193,7 @@ If the context is an object the class name of that object is used.</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="emergency" id="_emergency">
+	<tr data-order="turn" id="_turn">
 
 		<td class="attributes"><code>
 			 public 
@@ -203,26 +204,36 @@ If the context is an object the class name of that object is used.</p>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_emergency">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#49-55" title="Go to source code">emergency</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<a class="anchor" href="#_turn">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#55-69" title="Go to source code">turn</a>( <span>string <var>$toggle</var></span> )</code>
 
 		<div class="description short">
-			<p>(0) Emergency: system is unusable</p>
+			<p>Enables logging of the given severity level</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>(0) Emergency: system is unusable</p>
+			<p>Enables logging of the given severity level</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$toggle</var></dt>
+					<dd>format: (on|off) (debug|info|notice|warn|error|critical|alert|emergency)</dd>
+				</dl></div>
 
 
 
-
-
+				<h4>Example</h4>
+				<div class="list">
+						$log->turn('on debug');<br>
+						$log->turn('off warn');<br>
+				</div>
 
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="alert" id="_alert">
+	<tr data-order="debug" id="_debug">
 
 		<td class="attributes"><code>
 			 public 
@@ -233,135 +244,15 @@ If the context is an object the class name of that object is used.</p>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_alert">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#57-63" title="Go to source code">alert</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<a class="anchor" href="#_debug">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#71-79" title="Go to source code">debug</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			<p>(1) Alert: action must be taken immediately</p>
+			<p>Debug (severity 7): debug-level messages</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>(1) Alert: action must be taken immediately</p>
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="critical" id="_critical">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_critical">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#65-71" title="Go to source code">critical</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
-
-		<div class="description short">
-			<p>(2) Critical: critical conditions</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>(2) Critical: critical conditions</p>
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="error" id="_error">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_error">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#73-79" title="Go to source code">error</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
-
-		<div class="description short">
-			<p>(3) Error: error conditions</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>(3) Error: error conditions</p>
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="warn" id="_warn">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_warn">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#81-87" title="Go to source code">warn</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
-
-		<div class="description short">
-			<p>(4) Warning: warning conditions</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>(4) Warning: warning conditions</p>
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="notice" id="_notice">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_notice">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#89-95" title="Go to source code">notice</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
-
-		<div class="description short">
-			<p>(5) Notice: normal but significant condition</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>(5) Notice: normal but significant condition</p>
+			<p>Debug (severity 7): debug-level messages</p>
 
 
 
@@ -384,14 +275,14 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#97-103" title="Go to source code">info</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#81-89" title="Go to source code">info</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			<p>(6) Informational: informational messages</p>
+			<p>Informational (severity 6): informational messages</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>(6) Informational: informational messages</p>
+			<p>Informational (severity 6): informational messages</p>
 
 
 
@@ -402,7 +293,7 @@ If the context is an object the class name of that object is used.</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="debug" id="_debug">
+	<tr data-order="notice" id="_notice">
 
 		<td class="attributes"><code>
 			 public 
@@ -413,15 +304,165 @@ If the context is an object the class name of that object is used.</p>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_debug">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#105-111" title="Go to source code">debug</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<a class="anchor" href="#_notice">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#91-99" title="Go to source code">notice</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			<p>(7) Debug: debug-level messages</p>
+			<p>Notice (severity 5): normal but significant condition</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>(7) Debug: debug-level messages</p>
+			<p>Notice (severity 5): normal but significant condition</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="warn" id="_warn">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_warn">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#101-109" title="Go to source code">warn</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			<p>Warning (severity 4): warning conditions</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Warning (severity 4): warning conditions</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="error" id="_error">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_error">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#111-119" title="Go to source code">error</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			<p>Error (severity 3): error conditions</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Error (severity 3): error conditions</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="critical" id="_critical">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_critical">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#121-129" title="Go to source code">critical</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			<p>Critical (severity 2): critical conditions</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Critical (severity 2): critical conditions</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="alert" id="_alert">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_alert">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#131-139" title="Go to source code">alert</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			<p>Alert (severity 1): action must be taken immediately</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Alert (severity 1): action must be taken immediately</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="emergency" id="_emergency">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_emergency">#</a>
+		<code><a href="source-class-gregoryv.logger.Logger.html#141-149" title="Go to source code">emergency</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			<p>Emergency (severity 0): system is unusable</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Emergency (severity 0): system is unusable</p>
 
 
 

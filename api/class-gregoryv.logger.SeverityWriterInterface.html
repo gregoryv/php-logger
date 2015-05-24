@@ -42,6 +42,7 @@
 				<li><a href="class-gregoryv.logger.CachedWriter.html">CachedWriter</a></li>
 				<li><a href="class-gregoryv.logger.FileWriter.html">FileWriter</a></li>
 				<li><a href="class-gregoryv.logger.Logger.html">Logger</a></li>
+				<li><a href="class-gregoryv.logger.State.html">State</a></li>
 				<li><a href="class-gregoryv.logger.SyslogWriter.html">SyslogWriter</a></li>
 			</ul>
 
@@ -135,7 +136,7 @@ or syslog.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_swrite">#</a>
-		<code><a href="source-class-gregoryv.logger.SeverityWriterInterface.html#13-17" title="Go to source code">swrite</a>( <span>integer <var>$priority</var></span>, <span>string <var>$message</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.SeverityWriterInterface.html#13-17" title="Go to source code">swrite</a>( <span>integer <var>$severity</var></span>, <span>string <var>$message</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -147,7 +148,7 @@ or syslog.</p>
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$priority</var></dt>
+					<dt><var>$severity</var></dt>
 					<dd>eg. LOG_DEBUG, LOG_ERR</dd>
 					<dt><var>$message</var></dt>
 					<dd>the string to write</dd>
