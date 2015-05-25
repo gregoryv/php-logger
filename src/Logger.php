@@ -79,6 +79,16 @@ class Logger
     }
 
     /**
+     * Same as debug(sprintf($format, $args...))
+     */
+    public function debugf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->debug(vsprintf($format, $args));
+    }
+
+    /**
      * Informational (severity 6): informational messages
      */
     public function info($value='')
@@ -86,6 +96,16 @@ class Logger
         if($this->sieve->info) {
             self::$writer->swrite(LOG_INFO, sprintf($this->template, 'INFO', $value));
         }
+    }
+
+    /**
+     * Same as info(sprintf($format, $args...))
+     */
+    public function infof()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->info(vsprintf($format, $args));
     }
 
     /**
@@ -99,6 +119,16 @@ class Logger
     }
 
     /**
+     * Same as notice(sprintf($format, $args...))
+     */
+    public function noticef()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->notice(vsprintf($format, $args));
+    }
+
+    /**
      * Warning (severity 4): warning conditions
      */
     public function warn($value='')
@@ -106,6 +136,16 @@ class Logger
         if($this->sieve->warn) {
             self::$writer->swrite(LOG_WARNING, sprintf($this->template, 'WARNING', $value));
         }
+    }
+
+    /**
+     * Same as warn(sprintf($format, $args...))
+     */
+    public function warnf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->warn(vsprintf($format, $args));
     }
 
     /**
@@ -119,6 +159,16 @@ class Logger
     }
 
     /**
+     * Same as error(sprintf($format, $args...))
+     */
+    public function errorf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->error(vsprintf($format, $args));
+    }
+
+    /**
      * Critical (severity 2): critical conditions
      */
     public function critical($value='')
@@ -126,6 +176,16 @@ class Logger
         if($this->sieve->critical) {
             self::$writer->swrite(LOG_CRIT, sprintf($this->template, 'CRITICAL', $value));
         }
+    }
+
+    /**
+     * Same as critical(sprintf($format, $args...))
+     */
+    public function criticalf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->critical(vsprintf($format, $args));
     }
 
     /**
@@ -139,6 +199,16 @@ class Logger
     }
 
     /**
+     * Same as alert(sprintf($format, $args...))
+     */
+    public function alertf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->alert(vsprintf($format, $args));
+    }
+
+    /**
      * Emergency (severity 0): system is unusable
      */
     public function emergency($value='')
@@ -146,6 +216,16 @@ class Logger
         if($this->sieve->emergency) {
             self::$writer->swrite(LOG_EMERG, sprintf($this->template, 'EMERGENCY', $value));
         }
+    }
+
+    /**
+     * Same as emergency(sprintf($format, $args...))
+     */
+    public function emergencyf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->emergency(vsprintf($format, $args));
     }
 
 }
