@@ -52,20 +52,29 @@ class Logger
         self::$writer = $writer;
     }
 
+
     /**
      * Sets logging state of the given severity level in a readable format
      *
-     * @example
-     *  $log->turn('on debug');
-     * @example
-     *  $log->turn('off warn');
+     * @example $log->turn('on debug');
      *
-     * @param string $toggle format: (on|off) (debug|info|notice|warn|error|critical|alert|emergency)
+     * @example $log->turn('off all warn');
+     *
+     * @param string $toggle format: (on|off) [all] (debug|info|notice|warn|error|critical|alert|emergency)
      */
     public function turn($toggle)
     {
-        list($flag, $name) = explode(" ", $toggle);
-        $this->sieve->toggle($flag, $name);
+        if(preg_match_all('/^(on|off) (all)?\s?(debug|info|notice|warn|error|critical|alert|emergency)$/', $toggle, $matches)) {
+            $flag = $matches[1][0];
+            $all = $matches[2][0];
+            $name = $matches[3][0];
+            $this->sieve->toggle($flag, $name);
+            if($all === 'all') {
+                self::$SIEVE->toggle($flag, $name);
+            }
+        } else {
+            throw new \InvalidArgumentException("Invalid format: $toggle");
+        }
     }
 
     /**

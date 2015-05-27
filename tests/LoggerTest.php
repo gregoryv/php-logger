@@ -47,6 +47,38 @@ class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInt
     /**
     * @test
     * @group unit
+    * @dataProvider methodNames
+    */
+    function toggle_global_logging_off($name) {
+        $before = $this->result;
+        $this->log->turn("off all $name");
+        call_user_func(array($this->log, $name), $before . 'new');
+        $this->assertEquals($before, $this->result);
+        $this->log->turn("on all $name");
+    }
+
+
+    public function badTurnFormats()
+    {
+        return array(
+            array('f warn'),
+            array('on wrn'),
+            array('off warn globaly')
+        );
+    }
+    /**
+    * @test
+    * @group unit
+    * @dataProvider badTurnFormats
+    * @expectedException InvalidArgumentException
+    */
+    function wrong_format_exceptions($toggle) {
+        $this->log->turn($toggle);
+    }
+
+    /**
+    * @test
+    * @group unit
     */
     function all_level_messages_are_propagated_to_writer() {
         $log = $this->log;
