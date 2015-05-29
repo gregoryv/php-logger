@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class gregoryv\logger\FileWriter</title>
+	<title>Class gregoryv\logger\ConsoleWriter</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -40,8 +40,8 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-gregoryv.logger.CachedWriter.html">CachedWriter</a></li>
-				<li><a href="class-gregoryv.logger.ConsoleWriter.html">ConsoleWriter</a></li>
-				<li class="active"><a href="class-gregoryv.logger.FileWriter.html">FileWriter</a></li>
+				<li class="active"><a href="class-gregoryv.logger.ConsoleWriter.html">ConsoleWriter</a></li>
+				<li><a href="class-gregoryv.logger.FileWriter.html">FileWriter</a></li>
 				<li><a href="class-gregoryv.logger.Logger.html">Logger</a></li>
 				<li><a href="class-gregoryv.logger.State.html">State</a></li>
 				<li><a href="class-gregoryv.logger.SyslogWriter.html">SyslogWriter</a></li>
@@ -87,16 +87,16 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class FileWriter</h1>
+	<h1>Class ConsoleWriter</h1>
 
 
 	<div class="description">
-	<p>FileWriter writes log messages to one or more files</p>
+	<p>ConsoleWriter writes to stderr and stdout depending on severity</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>gregoryv\logger\FileWriter</span></b>			
+<b><span>gregoryv\logger\ConsoleWriter</span></b>			
 			 implements 
 				<a href="class-gregoryv.logger.SeverityWriterInterface.html"><span>gregoryv\logger\SeverityWriterInterface</span></a>
 			
@@ -117,7 +117,7 @@
 		<b>Namespace:</b> <a href="namespace-gregoryv.html">gregoryv</a>\<a href="namespace-gregoryv.logger.html">logger</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-gregoryv.logger.FileWriter.html#5-72" title="Go to source code">FileWriter.php</a>
+			<b>Located at</b> <a href="source-class-gregoryv.logger.ConsoleWriter.html#5-23" title="Go to source code">ConsoleWriter.php</a>
 		<br>
 	</div>
 
@@ -125,41 +125,6 @@
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-gregoryv.logger.FileWriter.html#13-24" title="Go to source code">__construct</a>( <span>string <var>$default</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$default</var></dt>
-					<dd>path to file where all log levels are written by default</dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="swrite" id="_swrite">
 
 		<td class="attributes"><code>
@@ -172,22 +137,24 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_swrite">#</a>
-		<code><a href="source-class-gregoryv.logger.FileWriter.html#26-30" title="Go to source code">swrite</a>( <span>integer <var>$severity</var></span>, <span>string <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.ConsoleWriter.html#11-22" title="Go to source code">swrite</a>( <span>integer <var>$severity</var></span>, <span>string <var>$message</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>If severity is equal or lower than LOG_ERR then the message is written
+to STDERR, otherwise STDOUT is used.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>If severity is equal or lower than LOG_ERR then the message is written
+to STDERR, otherwise STDOUT is used.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$severity</var></dt>
 					<dd>eg. LOG_DEBUG, LOG_ERR</dd>
-					<dt><var>$value</var></dt>
-					<dd>$message the string to write</dd>
+					<dt><var>$message</var></dt>
+					<dd>the string to write</dd>
 				</dl></div>
 
 
@@ -196,43 +163,6 @@
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-gregoryv.logger.SeverityWriterInterface.html#_swrite">gregoryv\logger\SeverityWriterInterface::swrite()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="useFile" id="_useFile">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_useFile">#</a>
-		<code><a href="source-class-gregoryv.logger.FileWriter.html#32-55" title="Go to source code">useFile</a>( <span>integer <var>$severity</var></span>, <span>string <var>$file</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$severity</var></dt>
-					<dd>which level</dd>
-					<dt><var>$file</var></dt>
-					<dd>path to file</dd>
-				</dl></div>
-
-
-
-
-
 		</div>
 		</div></td>
 	</tr>

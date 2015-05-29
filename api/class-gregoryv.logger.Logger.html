@@ -40,6 +40,7 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-gregoryv.logger.CachedWriter.html">CachedWriter</a></li>
+				<li><a href="class-gregoryv.logger.ConsoleWriter.html">ConsoleWriter</a></li>
 				<li><a href="class-gregoryv.logger.FileWriter.html">FileWriter</a></li>
 				<li class="active"><a href="class-gregoryv.logger.Logger.html">Logger</a></li>
 				<li><a href="class-gregoryv.logger.State.html">State</a></li>
@@ -111,7 +112,7 @@ specific log levels.</p>
 		<b>Namespace:</b> <a href="namespace-gregoryv.html">gregoryv</a>\<a href="namespace-gregoryv.logger.html">logger</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-gregoryv.logger.Logger.html#6-231" title="Go to source code">Logger.php</a>
+			<b>Located at</b> <a href="source-class-gregoryv.logger.Logger.html#6-239" title="Go to source code">Logger.php</a>
 		<br>
 	</div>
 
@@ -205,7 +206,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_turn">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#55-69" title="Go to source code">turn</a>( <span>string <var>$toggle</var></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#56-77" title="Go to source code">turn</a>( <span>string <var>$toggle</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets logging state of the given severity level in a readable format</p>
@@ -218,7 +219,7 @@ If the context is an object the class name of that object is used.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$toggle</var></dt>
-					<dd>format: (on|off) (debug|info|notice|warn|error|critical|alert|emergency)</dd>
+					<dd>format: (on|off) [all] (debug|info|notice|warn|error|critical|alert|emergency)</dd>
 				</dl></div>
 
 
@@ -226,7 +227,7 @@ If the context is an object the class name of that object is used.</p>
 				<h4>Example</h4>
 				<div class="list">
 						$log->turn('on debug');<br>
-						$log->turn('off warn');<br>
+						$log->turn('off all warn');<br>
 				</div>
 
 
@@ -245,7 +246,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_debug">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#71-79" title="Go to source code">debug</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#79-87" title="Go to source code">debug</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Debug (severity 7): debug-level messages</p>
@@ -275,7 +276,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_debugf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#81-89" title="Go to source code">debugf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#89-97" title="Go to source code">debugf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as debug(sprintf($format, $args...))</p>
@@ -305,7 +306,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_info">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#91-99" title="Go to source code">info</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#99-107" title="Go to source code">info</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Informational (severity 6): informational messages</p>
@@ -335,7 +336,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_infof">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#101-109" title="Go to source code">infof</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#109-117" title="Go to source code">infof</a>( )</code>
 
 		<div class="description short">
 			<p>Same as info(sprintf($format, $args...))</p>
@@ -365,7 +366,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_notice">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#111-119" title="Go to source code">notice</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#119-127" title="Go to source code">notice</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Notice (severity 5): normal but significant condition</p>
@@ -395,7 +396,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_noticef">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#121-129" title="Go to source code">noticef</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#129-137" title="Go to source code">noticef</a>( )</code>
 
 		<div class="description short">
 			<p>Same as notice(sprintf($format, $args...))</p>
@@ -425,7 +426,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_warn">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#131-139" title="Go to source code">warn</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#139-147" title="Go to source code">warn</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Warning (severity 4): warning conditions</p>
@@ -455,7 +456,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_warnf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#141-149" title="Go to source code">warnf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#149-157" title="Go to source code">warnf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as warn(sprintf($format, $args...))</p>
@@ -485,7 +486,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_error">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#151-159" title="Go to source code">error</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#159-167" title="Go to source code">error</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Error (severity 3): error conditions</p>
@@ -515,7 +516,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_errorf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#161-169" title="Go to source code">errorf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#169-177" title="Go to source code">errorf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as error(sprintf($format, $args...))</p>
@@ -545,7 +546,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_critical">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#171-179" title="Go to source code">critical</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#179-187" title="Go to source code">critical</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Critical (severity 2): critical conditions</p>
@@ -575,7 +576,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_criticalf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#181-189" title="Go to source code">criticalf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#189-197" title="Go to source code">criticalf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as critical(sprintf($format, $args...))</p>
@@ -605,7 +606,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_alert">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#191-199" title="Go to source code">alert</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#199-207" title="Go to source code">alert</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Alert (severity 1): action must be taken immediately</p>
@@ -635,7 +636,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_alertf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#201-209" title="Go to source code">alertf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#209-217" title="Go to source code">alertf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as alert(sprintf($format, $args...))</p>
@@ -665,7 +666,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_emergency">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#211-219" title="Go to source code">emergency</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#219-227" title="Go to source code">emergency</a>( <span> <var>$value</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			<p>Emergency (severity 0): system is unusable</p>
@@ -695,7 +696,7 @@ If the context is an object the class name of that object is used.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_emergencyf">#</a>
-		<code><a href="source-class-gregoryv.logger.Logger.html#221-229" title="Go to source code">emergencyf</a>( )</code>
+		<code><a href="source-class-gregoryv.logger.Logger.html#229-237" title="Go to source code">emergencyf</a>( )</code>
 
 		<div class="description short">
 			<p>Same as emergency(sprintf($format, $args...))</p>
