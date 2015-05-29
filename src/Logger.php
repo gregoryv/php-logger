@@ -57,7 +57,6 @@ class Logger
      * Sets logging state of the given severity level in a readable format
      *
      * @example $log->turn('on debug');
-     *
      * @example $log->turn('off all warn');
      *
      * @param string $toggle format: (on|off) [all] (debug|info|notice|warn|error|critical|alert|emergency)
