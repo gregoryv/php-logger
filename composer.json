@@ -9,10 +9,9 @@
             "email": "g@7de.se"
         }
     ],
-    "minimum-stability": "dev",
     "require": {},
     "require-dev": {
-        "php": "5.4",
+        "php": "^5.4",
         "phpunit/phpunit": "*",
         "codeclimate/php-test-reporter": "dev-master"
     },
