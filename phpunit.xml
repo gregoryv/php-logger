@@ -6,7 +6,7 @@
   </groups>
   <filter>
     <blacklist>
-      <directory suffix="Test.php">tests</directory>
+      <directory suffix=".php">tests</directory>
       <directory suffix="Interface.php">src</directory>
       <file>src/SyslogWriter.php</file>
     </blacklist>
