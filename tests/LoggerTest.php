@@ -1,9 +1,10 @@
 <?php
 use gregoryv\logger\Logger;
 use gregoryv\logger\SeverityWriterInterface;
-
+require_once 'DataProvider.php';
 
 class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInterface {
+    use DataProvider;
 
     private $result;
 
@@ -16,20 +17,6 @@ class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInt
     {
         Logger::setWriter($this);
         $this->log = new Logger($this);
-    }
-
-    public function methodNames()
-    {
-        return array(
-            array('debug'),
-            array('info'),
-            array('notice'),
-            array('warn'),
-            array('error'),
-            array('critical'),
-            array('alert'),
-            array('emergency')
-        );
     }
 
     /**
@@ -58,7 +45,7 @@ class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInt
     }
 
 
-    public function badTurnFormats()
+    function badTurnFormats()
     {
         return array(
             array('f warn'),
@@ -113,70 +100,28 @@ class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInt
     * @test
     * @group unit
     */
-    function debugf() {
+    function logf_methods_formating() {
         $this->log->debugf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest DEBUG a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function infof() {
         $this->log->infof('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest INFO a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function noticef() {
         $this->log->noticef('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest NOTICE a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function warnf() {
         $this->log->warnf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest WARNING a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function errorf() {
         $this->log->errorf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest ERROR a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function criticalf() {
         $this->log->criticalf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest CRITICAL a 1', $this->result);
-    }
 
-    /**
-    * @test
-    * @group unit
-    */
-    function alertf() {
         $this->log->alertf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest ALERT a 1', $this->result);
-    }
 
-     /**
-    * @test
-    * @group unit
-    */
-    function emergencyf() {
         $this->log->emergencyf('%s %s', 'a', 1);
         $this->assertEquals('LoggerTest EMERGENCY a 1', $this->result);
     }

@@ -1,25 +1,10 @@
 <?php
 use gregoryv\logger\State;
+require_once 'DataProvider.php';
 
 class StateTest extends PHPUnit_Framework_TestCase {
 
-    function setUp() {
-
-    }
-
-    public function methodNames()
-    {
-        return array(
-            array('debug'),
-            array('info'),
-            array('notice'),
-            array('warn'),
-            array('error'),
-            array('critical'),
-            array('alert'),
-            array('emergency')
-        );
-    }
+    use DataProvider;
 
     /**
     * @test

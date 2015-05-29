@@ -2,7 +2,7 @@
     "name": "gregoryv/php-logger",
     "description": "Basic logging for php",
     "license": "MIT",
-    "version": "0.0.7",
+    "version": "0.1.0",
     "authors": [
         {
             "name": "Gregory Vinčić",
@@ -12,6 +12,7 @@
     "minimum-stability": "dev",
     "require": {},
     "require-dev": {
+        "php": "5.4",
         "phpunit/phpunit": "*",
         "codeclimate/php-test-reporter": "dev-master"
     },
