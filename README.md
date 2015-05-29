@@ -19,6 +19,15 @@ way of using it is
     $log = new Logger();
     $log->info('something');
 
+    $x = 'something';
+    $log->debugf('Variable $x=%s', $x);
+
+    $log->turn('off debug'); // for this logger only
+    $log->debug('this will not be written');
+
+    $log->turn('off all warn'); // for this and all subsequently created loggers
+
+
 The logger has methods for each severity level defined by [RFC5424 6.2.1](http://tools.ietf.org/html/rfc5424#section-6.2.1).
 That means you do not care much about where the messages end up initially, which
 surprisingly, is in the syslog.
