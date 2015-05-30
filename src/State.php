@@ -6,6 +6,7 @@ namespace gregoryv\logger;
 */
 class State
 {
+    public $progress = true;
     public $debug = true;
     public $info = true;
     public $notice = true;
@@ -19,7 +20,7 @@ class State
      * Sets the named attribute to true or false
      *
      * @param string $flag (on|off)
-     * @param string $name (debug|info|notice|warn|error|critical|alert|emergency)
+     * @param string $name (progress|debug|info|notice|warn|error|critical|alert|emergency)
      * @throws InvalidArgumentException on badly formated $flag or $name
      */
     public function toggle($flag, $name)
@@ -38,6 +39,9 @@ class State
         }
 
         switch ($name) {
+            case 'progress':
+                $this->progress = $onoff;
+                break;
             case 'debug':
                 $this->debug = $onoff;
                 break;

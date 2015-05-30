@@ -13,7 +13,7 @@ namespace gregoryv\logger;
 */
 class Logger
 {
-    private static $writer;
+    private static $writer, $console;
     private $template;
     // Holds severity state, global default for all loggers
     private static $SIEVE;
@@ -28,9 +28,12 @@ class Logger
      */
     function __construct($context='')
     {
-        if(empty(self::$writer)) {
-            self::$writer = new SyslogWriter(); // @codeCoverageIgnore
-        } // @codeCoverageIgnore
+        if(!isset(self::$writer)) {
+            self::$writer = new SyslogWriter();
+        }
+        if(!isset(self::$console)) {
+            self::$console = new ConsoleWriter();
+        }
         if(is_object($context)) {
             $context = get_class($context);
         }
@@ -41,6 +44,7 @@ class Logger
         $this->template = $label . "%s %s";
         $this->sieve = clone Logger::$SIEVE;
     }
+
 
     /**
      * Set global writer for all your loggers
@@ -59,11 +63,11 @@ class Logger
      * @example $log->turn('on debug');
      * @example $log->turn('off all warn');
      *
-     * @param string $toggle format: (on|off) [all] (debug|info|notice|warn|error|critical|alert|emergency)
+     * @param string $toggle format: (on|off) [all] (progress|debug|info|notice|warn|error|critical|alert|emergency)
      */
     public function turn($toggle)
     {
-        if(preg_match_all('/^(on|off) (all)?\s?(debug|info|notice|warn|error|critical|alert|emergency)$/', $toggle, $matches)) {
+        if(preg_match_all('/^(on|off) (all)?\s?(progress|debug|info|notice|warn|error|critical|alert|emergency)$/', $toggle, $matches)) {
             $flag = $matches[1][0];
             $all = $matches[2][0];
             $name = $matches[3][0];
@@ -74,6 +78,28 @@ class Logger
         } else {
             throw new \InvalidArgumentException("Invalid format: $toggle");
         }
+    }
+
+
+    /**
+     * Writes to the console without any template and using the info() method.
+     */
+    public function progress($value='')
+    {
+        if($this->sieve->progress) {
+            $this->info($value);
+            self::$console->swrite(LOG_INFO, $value);
+        }
+    }
+
+    /**
+     * Same as progress(sprintf($format, $args...))
+     */
+    public function progressf()
+    {
+        $args = func_get_args();
+        $format = array_shift($args);
+        $this->progress(vsprintf($format, $args));
     }
 
     /**
