@@ -6,7 +6,6 @@ trait DataProvider
     public function methodNames()
     {
         return array(
-            array('progress'),
             array('debug'),
             array('info'),
             array('notice'),
@@ -21,7 +20,6 @@ trait DataProvider
     public function methodNamesAndPrefixes()
     {
         return array(
-            array('progress', 'INFO'),
             array('debug', 'DEBUG'),
             array('info', 'INFO'),
             array('notice', 'NOTICE'),

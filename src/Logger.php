@@ -82,27 +82,6 @@ class Logger
 
 
     /**
-     * Writes to the console without any template and using the info() method.
-     */
-    public function progress($value='')
-    {
-        if($this->sieve->progress) {
-            $this->info($value);
-            self::$console->swrite(LOG_INFO, $value);
-        }
-    }
-
-    /**
-     * Same as progress(sprintf($format, $args...))
-     */
-    public function progressf()
-    {
-        $args = func_get_args();
-        $format = array_shift($args);
-        $this->progress(vsprintf($format, $args));
-    }
-
-    /**
      * Debug (severity 7): debug-level messages
      */
     public function debug($value='')

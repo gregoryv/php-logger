@@ -27,9 +27,6 @@ way of using it is
 
     $log->turn('off all warn'); // for this and all subsequently created loggers
 
-    // Log to stdout and default writer
-    $log->progress('Doing x'); // will print 'Doing x' to stdout and 'INFO Doing x' to the configured writer
-
 
 The logger has methods for each severity level defined by [RFC5424 6.2.1](http://tools.ietf.org/html/rfc5424#section-6.2.1).
 That means you do not care much about where the messages end up initially, which
