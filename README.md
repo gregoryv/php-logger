@@ -10,11 +10,10 @@
 README
 ======
 
-Logger module for basic intuitive logging in php. Severity levels are based
-on those for *syslog* found in [RFC5424](http://tools.ietf.org/html/rfc5424).
-With this module does not do everything but it is a starting point from which
-you can evolve your logging needs as your system grows. The simplest and default
-way of using it is
+Logger module for basic intuitive logging in php. Severity levels are based on
+those for *syslog* found in [RFC5424](http://tools.ietf.org/html/rfc5424).
+This module is a starting point from which you can evolve your logging needs
+as your system grows. The simplest and default way of using it is
 
     use gregoryv\logger\Logger;
 
