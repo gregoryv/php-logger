@@ -4,7 +4,7 @@ test:
 	php vendor/bin/phpunit tests
 
 coverage:
-	./vendor/bin/phpunit --bootstrap vendor/autoload.php --coverage-html build/logs/coverage/ --coverage-clover build/logs/clover.xml tests
+	./vendor/bin/phpunit --coverage-html build/logs/coverage/ --coverage-clover build/logs/clover.xml tests
 
 api:
 	apigen generate --source src --destination api

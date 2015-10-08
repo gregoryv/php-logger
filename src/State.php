@@ -1,4 +1,5 @@
 <?php
+// Copyright (c) 2015 Gregory Vinčić, The MIT License (MIT)
 namespace gregoryv\logger;
 
 /**

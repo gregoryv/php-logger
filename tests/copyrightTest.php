@@ -17,7 +17,7 @@ class CopyrightTest extends PHPUnit_Framework_TestCase {
     function some_files_are_missing_the_copyright_statement($dir) {
         $Directory = new RecursiveDirectoryIterator($dir);
         $Iterator = new RecursiveIteratorIterator($Directory);
-        $Regex = new RegexIterator($Iterator, '/^.+[^Test]\.php$/i', RecursiveRegexIterator::GET_MATCH);
+        $Regex = new RegexIterator($Iterator, '/\.php$/i', RecursiveRegexIterator::GET_MATCH);
         $result = array();
         $Regex->next();
         while ( $Regex->valid() ) {

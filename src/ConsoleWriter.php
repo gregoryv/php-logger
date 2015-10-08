@@ -5,7 +5,7 @@ namespace gregoryv\logger;
 /**
 * ConsoleWriter writes to stderr and stdout depending on severity
 *
-* @codeCoverageIgnore Need uopz to test this, once it's availabel at travis test me
+* @codeCoverageIgnore Need uopz to test this, once it's available at travis test me
 */
 class ConsoleWriter implements SeverityWriterInterface
 {

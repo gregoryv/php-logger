@@ -2,6 +2,7 @@
   <groups>
     <include>
       <group>unit</group>
+      <group>QA</group>
     </include>
   </groups>
   <filter>
