@@ -63,11 +63,11 @@ class Logger
      * @example $log->turn('on debug');
      * @example $log->turn('off all warn');
      *
-     * @param string $toggle format: (on|off) [all] (progress|debug|info|notice|warn|error|critical|alert|emergency)
+     * @param string $toggle format: (on|off) [all] (debug|info|notice|warn|error|critical|alert|emergency)
      */
     public function turn($toggle)
     {
-        if(preg_match_all('/^(on|off) (all)?\s?(progress|debug|info|notice|warn|error|critical|alert|emergency)$/', $toggle, $matches)) {
+        if(preg_match_all('/^(on|off) (all)?\s?(debug|info|notice|warn|error|critical|alert|emergency)$/', $toggle, $matches)) {
             $flag = $matches[1][0];
             $all = $matches[2][0];
             $name = $matches[3][0];
