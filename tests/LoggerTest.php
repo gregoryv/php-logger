@@ -2,10 +2,9 @@
 use gregoryv\logger\Logger;
 use gregoryv\logger\SeverityWriterInterface;
 require_once 'DataProvider.php';
-require_once 'fwriteRenameTrait.php';
 
 class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInterface {
-    use DataProvider, fwriteRenameTrait;
+    use DataProvider;
 
     private $result;
 

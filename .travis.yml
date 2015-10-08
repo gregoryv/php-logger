@@ -8,9 +8,9 @@ env:
 
 before_script:
   # UOPZ
-  - git clone https://github.com/krakjoe/uopz.git
-  - sh -c "cd uopz && phpize && ./configure && make && sudo make install"
-  - echo "extension=uopz.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+  #- git clone https://github.com/krakjoe/uopz.git
+  #- sh -c "cd uopz && phpize && ./configure && make && sudo make install"
+  #- echo "extension=uopz.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
   - composer self-update
   - composer install
