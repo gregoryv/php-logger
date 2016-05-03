@@ -38,15 +38,9 @@ surprisingly, is in the syslog.
 Usage
 -----
 
-Add to your composer
+Add to your composer.json
 
     {
-      "repositories": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/gregoryv/php-logger.git"
-        }
-      ],
       "require": {
         "gregoryv/php-logger": "*"
       }
