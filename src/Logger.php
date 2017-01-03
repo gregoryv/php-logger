@@ -11,7 +11,7 @@ namespace gregoryv\logger;
 *
 *   context( INFO|WARNING|ERROR|DEBUG) message
 */
-class Logger
+class Logger implements LoggerInterface
 {
     private static $writer, $console;
     private $template;
