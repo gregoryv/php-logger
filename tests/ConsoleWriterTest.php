@@ -3,7 +3,7 @@
 use gregoryv\logger\ConsoleWriter;
 //require_once 'fwriteRenameTrait.php';
 
-class ConsoleWriterTest extends PHPUnit_Framework_TestCase {
+class ConsoleWriterTest extends \PHPUnit\Framework\TestCase {
 
     //use fwriteRenameTrait;
 

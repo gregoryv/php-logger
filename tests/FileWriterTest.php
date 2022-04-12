@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use gregoryv\logger\FileWriter;
 
-class FileWriterTest extends PHPUnit_Framework_TestCase {
+class FileWriterTest extends \PHPUnit\Framework\TestCase {
 
     /**
     * @test

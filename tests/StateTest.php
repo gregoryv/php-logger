@@ -2,7 +2,7 @@
 use gregoryv\logger\State;
 require_once 'DataProvider.php';
 
-class StateTest extends PHPUnit_Framework_TestCase {
+class StateTest extends \PHPUnit\Framework\TestCase {
 
     use DataProvider;
 

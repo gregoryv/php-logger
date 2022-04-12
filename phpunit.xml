@@ -5,11 +5,11 @@
       <group>QA</group>
     </include>
   </groups>
-  <filter>
-    <blacklist>
+  <coverage>
+    <exclude>
       <directory suffix=".php">tests</directory>
       <directory suffix="Interface.php">src</directory>
       <file>src/SyslogWriter.php</file>
-    </blacklist>
-  </filter>
+    </exclude>
+  </coverage>
 </phpunit>

@@ -1,7 +1,7 @@
 <?php
 use gregoryv\logger\CachedWriter;
 
-class CachedWriterTest extends PHPUnit_Framework_TestCase {
+class CachedWriterTest extends \PHPUnit\Framework\TestCase {
 
     /**
     * @test

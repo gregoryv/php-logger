@@ -3,7 +3,7 @@ use gregoryv\logger\Logger;
 use gregoryv\logger\SeverityWriterInterface;
 require_once 'DataProvider.php';
 
-class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInterface {
+class LoggerTest extends \PHPUnit\Framework\TestCase implements SeverityWriterInterface {
     use DataProvider;
 
     private $result;
@@ -13,7 +13,7 @@ class LoggerTest extends PHPUnit_Framework_TestCase implements SeverityWriterInt
         $this->result = $message;
     }
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->log = new Logger($this);
         Logger::setWriter($this);
