@@ -56,9 +56,9 @@ class FileWriterTest extends \PHPUnit\Framework\TestCase {
     /**
     * @test
     * @group unit
-    * @expectedException InvalidArgumentException
     */
     function setting_unknown_priority_is_invalid() {
+        $this->expectException(InvalidArgumentException::class);
         $writer = new FileWriter('/tmp/gregoryv_default.txt');
         $writer->useFile(99, '/tmp/gregoryv_idontknow.txt');
     }

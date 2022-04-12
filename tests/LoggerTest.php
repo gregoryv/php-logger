@@ -57,9 +57,9 @@ class LoggerTest extends \PHPUnit\Framework\TestCase implements SeverityWriterIn
     * @test
     * @group unit
     * @dataProvider badTurnFormats
-    * @expectedException InvalidArgumentException
     */
     function wrong_format_exceptions($toggle) {
+        $this->expectException(InvalidArgumentException::class);
         $this->log->turn($toggle);
     }
 

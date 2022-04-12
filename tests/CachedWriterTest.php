@@ -22,9 +22,9 @@ class CachedWriterTest extends \PHPUnit\Framework\TestCase {
     /**
     * @test
     * @group unit
-    * @expectedException InvalidArgumentException
     */
     function limit_argument_must_be_an_int() {
+        $this->expectException(InvalidArgumentException::class);
         $writer = new CachedWriter();
         $writer->setLimit('astring');
     }
@@ -32,9 +32,9 @@ class CachedWriterTest extends \PHPUnit\Framework\TestCase {
     /**
     * @test
     * @group unit
-    * @expectedException InvalidArgumentException
     */
     function limit_argument_must_be_larger_than_0() {
+        $this->expectException(InvalidArgumentException::class);
         $writer = new CachedWriter();
         $writer->setLimit(0);
     }

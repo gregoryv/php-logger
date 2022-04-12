@@ -38,9 +38,9 @@ class StateTest extends \PHPUnit\Framework\TestCase {
     * @test
     * @group unit
     * @dataProvider badFlagsAndNames
-    * @expectedException InvalidArgumentException
     */
     function toggle_format($flag, $name) {
+        $this->expectException(InvalidArgumentException::class);
         $state = new State();
         $state->toggle($flag, $name);
     }
